@@ -1,99 +1,13 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="NRI Institute of Technology - a premier engineering institution.">
-	<title>NRI Institute of Technology</title>
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<header class="site-header">
-		<a class="brand" href="#home" aria-label="NRI Institute of Technology home">
-			<img class="naac-logo" src="naac.logo.png" alt="NAAC accredited">
-			<span>NRI Institute of Technology</span>
-		</a>
-	</header>
-	<button class="quick-home" type="button" data-menu-view="home" aria-label="Go to Home" title="Go to Home"><span aria-hidden="true">⌂</span> Home</button>
-	<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-		<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="menu-label">Menu</span>
-	</button>
-	<nav id="site-menu" class="site-menu" aria-label="Main navigation" aria-hidden="true">
-		<div class="site-menu-panel">
-			<button class="menu-close" type="button" aria-label="Close menu">×</button>
-			<p class="site-menu-eyebrow">NRI Institute of Technology</p>
-			<a href="#home" data-menu-view="home">Home</a>
-			<a href="#about" data-menu-view="about">About Us</a>
-			<a href="#admissions" data-menu-view="admissions">Admissions</a>
-			<a href="#contact" data-menu-view="contact">Contact</a>
-			<a href="#infrastructure" data-menu-view="collegeos">CollegeOS</a>
-			<a href="#infrastructure" data-menu-view="signal">Rise a Signal</a>
-			<a href="#campus-infrastructure-page" data-menu-view="campus">Discover Campus</a>
-		</div>
-	</nav>
-	<main id="home" class="hero">
-		<div class="hero-content reveal">
-			<h1 class="welcome-title"><img class="nriit-welcome-logo" src="nriit.logo.png" alt=""> <span>Welcome to NRI Institute of Technology</span></h1>
-			<p class="tagline">A Premier Engineering Institution</p>
-			<div class="hero-actions">
-				<button class="button discover-campus-button" type="button" data-view="campus">Discover campus <span aria-hidden="true">→</span></button>
-				<button class="button secondary-button" type="button" data-view="explore">Explore more <span aria-hidden="true">→</span></button>
-			</div>
-		</div>
-	</main>
-	<section id="campus-infrastructure-page" class="campus-infrastructure-page hidden-section" aria-live="polite">
-		<div class="section-heading reveal">
-			<p class="eyebrow">Campus command center</p>
-			<h2>Campus Infrastructure</h2>
-			<p>Discover the academic, support and service spaces available across the campus.</p>
-		</div>
-		<div id="campus-infrastructure-grid" class="campus-infrastructure-grid"></div>
-		<div id="infrastructure-detail" class="infrastructure-detail hidden-section"></div>
-		<p id="campus-upload-success" class="campus-upload-success" role="status" aria-live="polite"></p>
-	</section>
-	<section id="infrastructure" class="infrastructure">
-		<div id="collegeos-heading" class="section-heading reveal"><p class="eyebrow">Campus command center</p><h2>College Operating System</h2><p>Real-time campus facility availability and status.</p></div>
-		<div id="facility-grid" class="facility-grid"></div>
-		<div id="signal-heading" class="section-heading dashboard-heading"><p class="eyebrow">Raise a signal</p><h2>Campus Problems &amp; Complaints</h2><p>Report campus issues directly to the administration.</p></div>
-		<div id="signal-content">
-		<div id="complaint-categories" class="complaint-categories"></div>
-		<div class="dashboard-columns">
-			<form id="complaint-form" class="glass-panel" novalidate>
-				<h3>Report a Problem</h3><label>Complaint Category<select id="complaint-category" required><option value="">Select Problem</option></select></label>
-				<label>Image<input id="complaint-image" type="file" accept="image/jpeg,image/png,image/webp"><span id="image-name" class="file-note">JPG, PNG or WEBP</span></label>
-				<label>Location<input id="complaint-location" placeholder="Block A - Ground Floor" required><button id="locate" class="text-button" type="button">Use Current Location</button></label>
-				<label>Description<textarea id="complaint-description" placeholder="Describe the problem clearly..." required></textarea></label><button class="button" type="submit">Submit Complaint <span aria-hidden="true">→</span></button><p id="form-message" class="form-message" role="status"></p>
-			</form>
-			<div class="glass-panel preview-panel"><h3>Administration View</h3><p class="panel-note">Saved complaints are visible here for review.</p><div id="admin-list"></div><button id="reset-data" class="text-button" type="button">Reset Demo Data</button></div>
-		</div>
-		</div>
-	</section>
-	<section id="about" class="anchor-section"><h2>About Us</h2></section>
-	<section id="admissions" class="anchor-section"><h2>Admissions</h2></section>
-	<section id="contact" class="anchor-section"><h2>Contact</h2></section>
-	<div id="upload-modal" class="upload-modal hidden-section" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="upload-modal-title">
-		<div class="upload-modal-card">
-			<button class="modal-close" type="button" aria-label="Close upload modal">×</button>
-			<h3 id="upload-modal-title">Admin Image Upload</h3>
-			<p class="upload-modal-subtitle">Enter password to upload infrastructure images</p>
-			<div id="upload-password-panel">
-				<label for="upload-password">Password</label>
-				<input id="upload-password" type="password" inputmode="numeric" autocomplete="off" aria-label="Admin password">
-				<button id="verify-upload-password" class="button modal-button" type="button">Verify</button>
-				<p id="upload-password-message" class="upload-status" role="status"></p>
-			</div>
-			<div id="upload-access-panel" class="hidden-section">
-				<label for="upload-file-input">Select image file</label>
-				<input id="upload-file-input" type="file" multiple accept="image/jpeg,image/png,image/webp" aria-label="Select infrastructure images">
-				<div id="upload-preview-list" class="upload-preview-list hidden-section" aria-live="polite"></div>
-				<div class="upload-action-row">
-					<button id="confirm-upload" class="button modal-button" type="button">Upload Image</button>
-					<button id="cancel-upload" class="button secondary-button modal-button" type="button">Cancel</button>
-				</div>
-				<p id="upload-file-message" class="upload-status" role="status"></p>
-			</div>
-		</div>
-	</div>
-	<script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NRI Institute of Technology campus infrastructure dashboard" />
+    <title>NRI Institute of Technology</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
